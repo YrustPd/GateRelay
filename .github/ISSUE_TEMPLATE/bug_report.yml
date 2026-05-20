@@ -1,0 +1,79 @@
+name: Bug report
+description: Report a reproducible GateRelay bug.
+title: "[Bug]: "
+labels: ["bug", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping improve GateRelay.
+
+        Before submitting, remove all proxy credentials, full subscription tokens, private TLS keys, and private server details from logs and config snippets.
+  - type: input
+    id: version
+    attributes:
+      label: GateRelay version
+      description: Use the release tag, commit SHA, or "built from main".
+      placeholder: v0.1.0 or commit SHA
+    validations:
+      required: true
+  - type: input
+    id: os
+    attributes:
+      label: Operating system
+      placeholder: Ubuntu 24.04, Debian 12, etc.
+    validations:
+      required: true
+  - type: input
+    id: architecture
+    attributes:
+      label: Architecture
+      placeholder: amd64 or arm64
+    validations:
+      required: true
+  - type: input
+    id: go-version
+    attributes:
+      label: Go version if built from source
+      placeholder: go version go1.22.x linux/amd64
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: What happened, and what did you expect?
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+      description: Include minimal reproducible steps.
+      placeholder: |
+        1. Start GateRelay with ...
+        2. Send request ...
+        3. Observe ...
+    validations:
+      required: true
+  - type: textarea
+    id: config
+    attributes:
+      label: Config snippet with secrets removed
+      description: Remove proxy username/password, full subscription tokens, private TLS keys, and private host details as needed.
+      render: yaml
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant logs with secrets removed
+      description: Remove proxy credentials, full subscription tokens, private keys, and sensitive IPs/domains.
+      render: text
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Safety check
+      options:
+        - label: I removed proxy username/password from this issue.
+          required: true
+        - label: I removed full subscription tokens from this issue.
+          required: true
+        - label: I removed private TLS keys from this issue.
+          required: true

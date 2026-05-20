@@ -1,0 +1,47 @@
+name: Feature request
+description: Suggest a focused improvement to GateRelay.
+title: "[Feature]: "
+labels: ["enhancement", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        GateRelay intentionally stays small and strict. Feature requests should preserve local validation before outbound proxy use and must not turn GateRelay into an open proxy.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What operational or user problem would this solve?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: Describe the smallest practical change.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Mention config-only or deployment-only alternatives if relevant.
+  - type: dropdown
+    id: behavior-impact
+    attributes:
+      label: Does this affect relay behavior?
+      options:
+        - "No"
+        - "Yes"
+        - "Not sure"
+    validations:
+      required: true
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Safety check
+      options:
+        - label: This request does not require accepting upstream targets from user input.
+          required: true
+        - label: This request preserves local validation before outbound proxy use.
+          required: true

@@ -1,0 +1,29 @@
+listen_address: ":443"
+
+tls:
+  cert_file: "/etc/gaterelay/certs/fullchain.pem"
+  key_file: "/etc/gaterelay/certs/privkey.pem"
+
+routes:
+  - public_host: "public.example.com"
+    upstream_base: "https://upstream.example.net"
+    allowed_path_prefix: "/sub/"
+    allowed_methods: ["GET"]
+    pass_query_string: true
+
+outbound_http_proxy:
+  url: "http://proxy.example.net:8080"
+  username: "YOUR_PROXY_USERNAME"
+  password: "YOUR_PROXY_PASSWORD"
+
+timeouts:
+  read_header_timeout: "5s"
+  read_timeout: "15s"
+  write_timeout: "60s"
+  idle_timeout: "60s"
+  upstream_response_header: "30s"
+
+security:
+  reject_empty_host: true
+  hide_token_in_logs: true
+  max_request_body_bytes: 1048576

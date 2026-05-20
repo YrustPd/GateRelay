@@ -1,0 +1,43 @@
+name: Question
+description: Ask a general GateRelay question.
+title: "[Question]: "
+labels: ["question", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        For config or deployment problems, use the dedicated templates. Do not paste proxy username/password, full subscription tokens, or private TLS keys.
+  - type: input
+    id: version
+    attributes:
+      label: GateRelay version
+      placeholder: v0.1.0 or commit SHA
+  - type: input
+    id: os
+    attributes:
+      label: Operating system
+      placeholder: Ubuntu 24.04, Debian 12, etc.
+  - type: input
+    id: architecture
+    attributes:
+      label: Architecture
+      placeholder: amd64 or arm64
+  - type: input
+    id: go-version
+    attributes:
+      label: Go version if built from source
+      placeholder: go version go1.22.x linux/amd64
+  - type: textarea
+    id: question
+    attributes:
+      label: Question
+      description: Ask the question with enough context to answer safely.
+    validations:
+      required: true
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Safety check
+      options:
+        - label: I did not include proxy credentials, full subscription tokens, or private TLS keys.
+          required: true

@@ -1,0 +1,66 @@
+name: Configuration help
+description: Ask for help with GateRelay configuration.
+title: "[Config]: "
+labels: ["configuration", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Do not paste proxy username/password, full subscription tokens, or private TLS keys.
+  - type: input
+    id: version
+    attributes:
+      label: GateRelay version
+      placeholder: v0.1.0 or commit SHA
+    validations:
+      required: true
+  - type: input
+    id: os
+    attributes:
+      label: Operating system
+      placeholder: Ubuntu 24.04, Debian 12, etc.
+    validations:
+      required: true
+  - type: input
+    id: architecture
+    attributes:
+      label: Architecture
+      placeholder: amd64 or arm64
+    validations:
+      required: true
+  - type: input
+    id: go-version
+    attributes:
+      label: Go version if built from source
+      placeholder: go version go1.22.x linux/amd64
+  - type: textarea
+    id: goal
+    attributes:
+      label: What are you trying to configure?
+      description: Describe the desired host, path prefix, TLS mode, and proxy mode without exposing secrets.
+    validations:
+      required: true
+  - type: textarea
+    id: config
+    attributes:
+      label: Config snippet with secrets removed
+      description: Remove proxy username/password, full subscription tokens, private TLS keys, and private details.
+      render: yaml
+    validations:
+      required: true
+  - type: textarea
+    id: check-config
+    attributes:
+      label: Output from -check-config
+      render: text
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Safety check
+      options:
+        - label: I removed proxy username/password.
+          required: true
+        - label: I removed full subscription tokens.
+          required: true
+        - label: I removed private TLS keys.
+          required: true

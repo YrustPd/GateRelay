@@ -1,0 +1,14 @@
+.DS_Store
+*.log
+*.pid
+
+# Go build artifacts
+/bin/
+/dist/
+/gaterelay
+*.test
+coverage.out
+
+# Local runtime configuration
+/config.yaml
+/configs/*.local.yaml

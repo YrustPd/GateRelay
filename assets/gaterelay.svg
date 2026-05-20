@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title desc">
+  <title id="title">GateRelay icon</title>
+  <desc id="desc">A shield with a controlled relay path through the center.</desc>
+  <rect width="128" height="128" rx="28" fill="#0b0b0f"/>
+  <path d="M64 18 98 31v28c0 24-13.8 43.8-34 52-20.2-8.2-34-28-34-52V31l34-13Z" fill="#fff"/>
+  <path d="M64 29 87 38v21c0 17-8.7 31.2-23 38-14.3-6.8-23-21-23-38V38l23-9Z" fill="#0b0b0f"/>
+  <path d="M38 64h22" stroke="#fff" stroke-width="8" stroke-linecap="round"/>
+  <path d="M68 64h22" stroke="#fff" stroke-width="8" stroke-linecap="round"/>
+  <path d="M58 49h12a15 15 0 0 1 0 30H58a15 15 0 0 1 0-30Z" fill="none" stroke="#fff" stroke-width="8"/>
+  <circle cx="64" cy="64" r="5" fill="#fff"/>
+</svg>

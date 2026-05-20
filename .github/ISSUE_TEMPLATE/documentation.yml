@@ -1,0 +1,30 @@
+name: Documentation improvement
+description: Report missing, unclear, or outdated documentation.
+title: "[Docs]: "
+labels: ["documentation", "needs-triage"]
+body:
+  - type: textarea
+    id: page
+    attributes:
+      label: Document or section
+      placeholder: README.md, docs/deploy-notes.md, config example, etc.
+    validations:
+      required: true
+  - type: textarea
+    id: issue
+    attributes:
+      label: What should be improved?
+      description: Explain what is unclear, missing, or inaccurate.
+    validations:
+      required: true
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: Suggested wording or structure
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Safety check
+      options:
+        - label: I did not include proxy credentials, full subscription tokens, or private TLS keys.
+          required: true

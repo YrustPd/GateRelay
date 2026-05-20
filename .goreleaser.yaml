@@ -1,0 +1,46 @@
+version: 2
+
+project_name: gaterelay
+
+builds:
+  - id: gaterelay
+    main: ./cmd/gaterelay
+    binary: gaterelay
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - linux
+    goarch:
+      - amd64
+      - arm64
+    flags:
+      - -trimpath
+    ldflags:
+      - -s -w
+
+archives:
+  - id: gaterelay
+    ids:
+      - gaterelay
+    formats:
+      - tar.gz
+    name_template: "{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
+    files:
+      - LICENSE
+      - README.md
+      - configs/production.example.yaml
+      - deploy/gaterelay.service
+      - docs/deploy-notes.md
+
+checksum:
+  name_template: "checksums.txt"
+
+snapshot:
+  version_template: "{{ incpatch .Version }}-snapshot"
+
+changelog:
+  sort: asc
+  filters:
+    exclude:
+      - "^docs:"
+      - "^test:"

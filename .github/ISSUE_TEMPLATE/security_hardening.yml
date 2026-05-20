@@ -1,0 +1,48 @@
+name: Security hardening
+description: Suggest a non-sensitive security hardening improvement.
+title: "[Security]: "
+labels: ["security", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Do not disclose vulnerabilities, exploit details, proxy credentials, full subscription tokens, or private TLS keys in a public issue.
+
+        If this is a vulnerability report, stop here and follow the private reporting guidance in SECURITY.md. Use this form only for non-sensitive hardening ideas.
+  - type: textarea
+    id: summary
+    attributes:
+      label: Hardening idea
+      description: Describe the security improvement without sensitive details.
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Routing validation
+        - Upstream URL construction
+        - Proxy handling
+        - Header filtering
+        - Logging
+        - TLS/runtime
+        - Deployment/systemd
+        - Documentation
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: impact
+    attributes:
+      label: Expected impact
+      description: Explain what risk this reduces.
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Safety check
+      options:
+        - label: This is not a vulnerability disclosure.
+          required: true
+        - label: I did not include proxy credentials, full subscription tokens, or private TLS keys.
+          required: true

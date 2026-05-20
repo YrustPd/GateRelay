@@ -1,0 +1,69 @@
+name: Deployment / systemd help
+description: Ask for help running GateRelay on Linux or systemd.
+title: "[Deploy]: "
+labels: ["deployment", "systemd", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Remove secrets before posting. Do not paste proxy credentials, full subscription tokens, or private TLS keys.
+  - type: input
+    id: version
+    attributes:
+      label: GateRelay version
+      placeholder: v0.1.0 or commit SHA
+    validations:
+      required: true
+  - type: input
+    id: os
+    attributes:
+      label: Operating system
+      placeholder: Ubuntu 24.04, Debian 12, etc.
+    validations:
+      required: true
+  - type: input
+    id: architecture
+    attributes:
+      label: Architecture
+      placeholder: amd64 or arm64
+    validations:
+      required: true
+  - type: input
+    id: go-version
+    attributes:
+      label: Go version if built from source
+      placeholder: go version go1.22.x linux/amd64
+  - type: textarea
+    id: problem
+    attributes:
+      label: Deployment problem
+      description: Describe what fails and when.
+    validations:
+      required: true
+  - type: textarea
+    id: service
+    attributes:
+      label: systemd status or unit changes
+      description: Paste relevant output with secrets removed.
+      render: text
+  - type: textarea
+    id: logs
+    attributes:
+      label: Journal logs with secrets removed
+      render: text
+  - type: textarea
+    id: config
+    attributes:
+      label: Config snippet with secrets removed
+      render: yaml
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Safety check
+      options:
+        - label: I removed proxy username/password.
+          required: true
+        - label: I removed full subscription tokens.
+          required: true
+        - label: I removed private TLS keys.
+          required: true
